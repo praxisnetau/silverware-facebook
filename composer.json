@@ -1,0 +1,39 @@
+{
+  "name": "silverware/facebook",
+  "type": "silverstripe-module",
+  "description": "SilverWare Facebook Module.",
+  "homepage": "https://github.com/praxisnetau/silverware-facebook",
+  "keywords": [
+    "silverware",
+    "social",
+    "facebook",
+    "silverstripe"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Colin Tucker",
+      "role": "Developer",
+      "email": "colin@praxis.net.au",
+      "homepage": "http://www.praxis.net.au"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "silverware/silverware": "^0.2@dev",
+    "silverware/social": "^0.1@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "SilverWare\\Facebook\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    },
+    "installer-name": "silverware-facebook"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

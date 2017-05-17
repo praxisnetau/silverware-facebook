@@ -1,0 +1,15 @@
+---
+Name: silverware-facebook
+---
+
+# Configure Content Controller:
+
+SilverStripe\CMS\Controllers\ContentController:
+  required_js:
+    - silverware-facebook/client/dist/js/bundle.js
+
+# Configure Site Configuration:
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SilverWare\Facebook\Extensions\FacebookConfig
