@@ -59,7 +59,7 @@ template or layout using the CMS. For the plugin to work correctly, you will nee
 2. The name of your Facebook page.
 3. The URL of your Facebook page.
 
-Add the component where desired in your template or layout, entered the name of your
+Add the component where desired in your template or layout, enter the name of your
 Facebook page (e.g. "My Company") and the URL of your page on Facebook.
 
 For more information about the Facebook Page Plugin, see the [Facebook documentation][fbpageplugin].
