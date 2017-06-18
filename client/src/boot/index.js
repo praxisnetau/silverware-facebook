@@ -16,7 +16,7 @@ $(function() {
     FB.init({
       appId: appId,
       xfbml: true,
-      version: 'v2.7'
+      version: 'v2.9'
     });
     
     $('#loginbutton, #feedbutton').removeAttr('disabled');

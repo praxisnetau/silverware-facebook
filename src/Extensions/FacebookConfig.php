@@ -17,10 +17,10 @@
 
 namespace SilverWare\Facebook\Extensions;
 
-use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverWare\Extensions\Config\ServicesConfig;
+use SilverWare\Forms\FieldSection;
 
 /**
  * An extension of the services config class which adds Facebook settings to site configuration.
@@ -68,17 +68,21 @@ class FacebookConfig extends ServicesConfig
         $fields->addFieldsToTab(
             'Root.SilverWare.Services.Facebook',
             [
-                CompositeField::create([
-                    TextField::create(
-                        'FacebookAppID',
-                        $this->owner->fieldLabel('FacebookAppID')
-                    )->setRightTitle(
-                        _t(
-                            __CLASS__ . '.FACEBOOKAPPIDRIGHTTITLE',
-                            'Create a new app using the Facebook Developers website and paste the App ID here.'
+                FieldSection::create(
+                    'FacebookAPIConfig',
+                    $this->owner->fieldLabel('FacebookAPIConfig'),
+                    [
+                        TextField::create(
+                            'FacebookAppID',
+                            $this->owner->fieldLabel('FacebookAppID')
+                        )->setRightTitle(
+                            _t(
+                                __CLASS__ . '.FACEBOOKAPPIDRIGHTTITLE',
+                                'Create a new app using the Facebook Developers website and paste the App ID here.'
+                            )
                         )
-                    )
-                ])->setName('FacebookAPIConfig')->setTitle($this->owner->fieldLabel('FacebookAPIConfig'))
+                    ]
+                )
             ]
         );
     }
@@ -101,6 +105,18 @@ class FacebookConfig extends ServicesConfig
         $labels['Facebook'] = _t(__CLASS__ . '.FACEBOOK', 'Facebook');
         $labels['FacebookAppID'] = _t(__CLASS__ . '.FACEBOOKAPPID', 'Facebook App ID');
         $labels['FacebookAPIConfig'] = _t(__CLASS__ . '.FACEBOOKAPI', 'Facebook API');
+    }
+    
+    /**
+     * Event method called before the extended object is written to the database.
+     *
+     * @return void
+     */
+    public function onBeforeWrite()
+    {
+        // Clean Attributes:
+        
+        $this->owner->FacebookAppID = trim($this->owner->FacebookAppID);
     }
     
     /**

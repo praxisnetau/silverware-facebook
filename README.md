@@ -1,5 +1,9 @@
 # SilverWare Facebook Module
 
+[![Latest Stable Version](https://poser.pugx.org/silverware/facebook/v/stable)](https://packagist.org/packages/silverware/facebook)
+[![Latest Unstable Version](https://poser.pugx.org/silverware/facebook/v/unstable)](https://packagist.org/packages/silverware/facebook)
+[![License](https://poser.pugx.org/silverware/facebook/license)](https://packagist.org/packages/silverware/facebook)
+
 Provides a [Facebook Page Plugin][fbpageplugin] component and
 [sharing button][fbsharebutton] for use with [SilverWare][silverware].
 
@@ -69,8 +73,8 @@ For more information about the Facebook Page Plugin, see the [Facebook documenta
 ![Facebook Sharing Button](http://i.imgur.com/0Nf9HMt.png)
 
 Also provided is a `FacebookSharingButton` which is used with the `SharingComponent`
-from the [SilverWare Social Module][silverware-social]. Simply add this button using
-the Buttons tab on the `SharingComponent`, and your pages will now
+from the [SilverWare Social Module][silverware-social]. Simply add this button as a child of
+`SharingComponent` using the site tree, and your pages will now
 be able to be shared via Facebook.
 
 For more information, see the [Facebook documentation][fbsharebutton].

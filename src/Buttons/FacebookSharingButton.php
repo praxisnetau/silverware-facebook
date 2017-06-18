@@ -18,8 +18,8 @@
 namespace SilverWare\Facebook\Buttons;
 
 use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\DropdownField;
+use SilverWare\Forms\FieldSection;
 use SilverWare\Social\Model\SharingButton;
 
 /**
@@ -61,6 +61,14 @@ class FacebookSharingButton extends SharingButton
      * @config
      */
     private static $plural_name = 'Facebook Sharing Buttons';
+    
+    /**
+     * Description of this object.
+     *
+     * @var string
+     * @config
+     */
+    private static $description = 'A sharing button to share the current page via Facebook';
     
     /**
      * Defines an ancestor class to hide from the admin interface.
@@ -119,30 +127,38 @@ class FacebookSharingButton extends SharingButton
         
         $fields->addFieldToTab(
             'Root.Style',
-            CompositeField::create([
-                DropdownField::create(
-                    'ButtonSize',
-                    $this->fieldLabel('ButtonSize'),
-                    $this->getButtonSizeOptions()
-                ),
-                DropdownField::create(
-                    'ButtonLayout',
-                    $this->fieldLabel('ButtonLayout'),
-                    $this->getButtonLayoutOptions()
-                )
-            ])->setName('FacebookSharingButtonStyle')->setTitle($this->i18n_singular_name())
+            FieldSection::create(
+                'FacebookSharingButtonStyle',
+                $this->i18n_singular_name(),
+                [
+                    DropdownField::create(
+                        'ButtonSize',
+                        $this->fieldLabel('ButtonSize'),
+                        $this->getButtonSizeOptions()
+                    ),
+                    DropdownField::create(
+                        'ButtonLayout',
+                        $this->fieldLabel('ButtonLayout'),
+                        $this->getButtonLayoutOptions()
+                    )
+                ]
+            )
         );
         
         // Create Options Fields:
         
         $fields->addFieldToTab(
             'Root.Options',
-            CompositeField::create([
-                CheckboxField::create(
-                    'MobileIFrame',
-                    $this->fieldLabel('MobileIFrame')
-                )
-            ])->setName('FacebookSharingButtonOptions')->setTitle($this->i18n_singular_name())
+            FieldSection::create(
+                'FacebookSharingButtonOptions',
+                $this->i18n_singular_name(),
+                [
+                    CheckboxField::create(
+                        'MobileIFrame',
+                        $this->fieldLabel('MobileIFrame')
+                    )
+                ]
+            )
         );
         
         // Answer Field Objects:
@@ -165,29 +181,13 @@ class FacebookSharingButton extends SharingButton
         
         // Define Field Labels:
         
-        $labels['ButtonSize'] = _t(__CLASS__ . '.BUTTONSIZE', 'Button size');
+        $labels['ButtonSize']   = _t(__CLASS__ . '.BUTTONSIZE', 'Button size');
         $labels['ButtonLayout'] = _t(__CLASS__ . '.BUTTONLAYOUT', 'Button layout');
         $labels['MobileIFrame'] = _t(__CLASS__ . '.USEIFRAMEONMOBILE', 'Use <iframe> on mobile');
         
         // Answer Field Labels:
         
         return $labels;
-    }
-    
-    /**
-     * Populates the default values for the fields of the receiver.
-     *
-     * @return void
-     */
-    public function populateDefaults()
-    {
-        // Populate Defaults (from parent):
-        
-        parent::populateDefaults();
-        
-        // Populate Defaults:
-        
-        $this->Name = _t(__CLASS__ . '.SHAREVIAFACEBOOK', 'Share via Facebook');
     }
     
     /**
@@ -199,7 +199,7 @@ class FacebookSharingButton extends SharingButton
     {
         $attributes = [
             'class' => $this->ButtonClass,
-            'data-href' => $this->Link,
+            'data-href' => $this->ButtonLink,
             'data-size' => $this->ButtonSize,
             'data-layout' => $this->ButtonLayout,
             'data-mobile-iframe' => $this->dbObject('MobileIFrame')->NiceAsBoolean()

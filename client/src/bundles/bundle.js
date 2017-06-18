@@ -11,4 +11,4 @@ require('styles/bundle.scss');
 
 // Load Components:
 
-require('components/FacebookPagePlugin');
+require('components/FacebookPagePlugin.js');

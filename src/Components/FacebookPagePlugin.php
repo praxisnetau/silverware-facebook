@@ -19,10 +19,10 @@ namespace SilverWare\Facebook\Components;
 
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
-use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
 use SilverWare\Components\BaseComponent;
+use SilverWare\Forms\FieldSection;
 
 /**
  * An extension of the base component class for a Facebook Page plugin.
@@ -39,7 +39,7 @@ class FacebookPagePlugin extends BaseComponent
      * Define tab constants.
      */
     const TAB_TIMELINE = 'timeline';
-    const TAB_EVENTS = 'events';
+    const TAB_EVENTS   = 'events';
     const TAB_MESSAGES = 'messages';
     
     /**
@@ -169,24 +169,28 @@ class FacebookPagePlugin extends BaseComponent
         
         $fields->addFieldToTab(
             'Root.Options',
-            CompositeField::create([
-                TextField::create(
-                    'Height',
-                    $this->fieldLabel('Height')
-                ),
-                CheckboxField::create(
-                    'HideCover',
-                    $this->fieldLabel('HideCover')
-                ),
-                CheckboxField::create(
-                    'ShowFaces',
-                    $this->fieldLabel('ShowFaces')
-                ),
-                CheckboxField::create(
-                    'UseSmallHeader',
-                    $this->fieldLabel('UseSmallHeader')
-                )
-            ])->setName('FacebookPagePluginOptions')->setTitle($this->i18n_singular_name())
+            FieldSection::create(
+                'FacebookPagePluginOptions',
+                $this->i18n_singular_name(),
+                [
+                    TextField::create(
+                        'Height',
+                        $this->fieldLabel('Height')
+                    ),
+                    CheckboxField::create(
+                        'HideCover',
+                        $this->fieldLabel('HideCover')
+                    ),
+                    CheckboxField::create(
+                        'ShowFaces',
+                        $this->fieldLabel('ShowFaces')
+                    ),
+                    CheckboxField::create(
+                        'UseSmallHeader',
+                        $this->fieldLabel('UseSmallHeader')
+                    )
+                ]
+            )
         );
         
         // Answer Field Objects:
