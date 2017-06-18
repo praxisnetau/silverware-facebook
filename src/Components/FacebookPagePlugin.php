@@ -165,6 +165,22 @@ class FacebookPagePlugin extends BaseComponent
             ]
         );
         
+        // Create Style Fields:
+        
+        $fields->addFieldToTab(
+            'Root.Style',
+            FieldSection::create(
+                'FacebookPagePluginStyle',
+                $this->i18n_singular_name(),
+                [
+                    TextField::create(
+                        'Height',
+                        $this->fieldLabel('Height')
+                    )
+                ]
+            )
+        );
+        
         // Create Options Fields:
         
         $fields->addFieldToTab(
@@ -173,10 +189,6 @@ class FacebookPagePlugin extends BaseComponent
                 'FacebookPagePluginOptions',
                 $this->i18n_singular_name(),
                 [
-                    TextField::create(
-                        'Height',
-                        $this->fieldLabel('Height')
-                    ),
                     CheckboxField::create(
                         'HideCover',
                         $this->fieldLabel('HideCover')
