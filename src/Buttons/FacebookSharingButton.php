@@ -128,8 +128,8 @@ class FacebookSharingButton extends SharingButton
         $fields->addFieldToTab(
             'Root.Style',
             FieldSection::create(
-                'FacebookSharingButtonStyle',
-                $this->i18n_singular_name(),
+                'ButtonStyle',
+                $this->fieldLabel('ButtonStyle'),
                 [
                     DropdownField::create(
                         'ButtonSize',
@@ -150,8 +150,8 @@ class FacebookSharingButton extends SharingButton
         $fields->addFieldToTab(
             'Root.Options',
             FieldSection::create(
-                'FacebookSharingButtonOptions',
-                $this->i18n_singular_name(),
+                'ButtonOptions',
+                $this->fieldLabel('ButtonOptions'),
                 [
                     CheckboxField::create(
                         'MobileIFrame',
@@ -184,6 +184,7 @@ class FacebookSharingButton extends SharingButton
         $labels['ButtonSize']   = _t(__CLASS__ . '.BUTTONSIZE', 'Button size');
         $labels['ButtonLayout'] = _t(__CLASS__ . '.BUTTONLAYOUT', 'Button layout');
         $labels['MobileIFrame'] = _t(__CLASS__ . '.USEIFRAMEONMOBILE', 'Use <iframe> on mobile');
+        $labels['ButtonStyle'] = $labels['ButtonOptions'] = _t(__CLASS__ . '.BUTTON', 'Button');
         
         // Answer Field Labels:
         

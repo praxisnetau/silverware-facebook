@@ -170,8 +170,8 @@ class FacebookPagePlugin extends BaseComponent
         $fields->addFieldToTab(
             'Root.Style',
             FieldSection::create(
-                'FacebookPagePluginStyle',
-                $this->i18n_singular_name(),
+                'PluginStyle',
+                $this->fieldLabel('PluginStyle'),
                 [
                     TextField::create(
                         'Height',
@@ -186,8 +186,8 @@ class FacebookPagePlugin extends BaseComponent
         $fields->addFieldToTab(
             'Root.Options',
             FieldSection::create(
-                'FacebookPagePluginOptions',
-                $this->i18n_singular_name(),
+                'PluginOptions',
+                $this->fieldLabel('PluginOptions'),
                 [
                     CheckboxField::create(
                         'HideCover',
@@ -245,6 +245,7 @@ class FacebookPagePlugin extends BaseComponent
         $labels['HideCover'] = _t(__CLASS__ . '.HIDECOVER', 'Hide cover');
         $labels['ShowFaces'] = _t(__CLASS__ . '.SHOWFACES', 'Show faces');
         $labels['UseSmallHeader'] = _t(__CLASS__ . '.USESMALLHEADER', 'Use small header');
+        $labels['PluginStyle'] = $labels['PluginOptions'] = _t(__CLASS__ . '.PLUGIN', 'Plugin');
         
         // Answer Field Labels:
         
