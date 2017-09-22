@@ -319,7 +319,9 @@ class FacebookPagePlugin extends BaseComponent
      */
     public function getTabsAttribute()
     {
-        return implode(',', json_decode($this->ShowTabs, true));
+        if ($this->ShowTabs) {
+            return implode(',', json_decode($this->ShowTabs, true));
+        }
     }
     
     /**
