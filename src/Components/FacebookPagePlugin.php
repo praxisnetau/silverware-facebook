@@ -22,6 +22,7 @@ use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
 use SilverWare\Components\BaseComponent;
+use SilverWare\Extensions\Style\AlignmentStyle;
 use SilverWare\Forms\FieldSection;
 
 /**
@@ -127,6 +128,16 @@ class FacebookPagePlugin extends BaseComponent
      */
     private static $casting = [
         'PluginAttributesHTML' => 'HTMLFragment'
+    ];
+    
+    /**
+     * Defines the extension classes to apply to this object.
+     *
+     * @var array
+     * @config
+     */
+    private static $extensions = [
+        AlignmentStyle::class
     ];
     
     /**
