@@ -6,7 +6,7 @@ Name: silverware-facebook
 
 SilverStripe\CMS\Controllers\ContentController:
   required_js:
-    - silverware-facebook/client/dist/js/bundle.js
+    - "silverware/facebook: client/dist/js/bundle.js"
 
 # Configure Site Configuration:
 
