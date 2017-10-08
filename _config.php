@@ -14,13 +14,3 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause
  * @link https://github.com/praxisnetau/silverware-facebook
  */
-
-// Define Module Constants:
-
-if (!defined('SILVERWARE_FACEBOOK_DIR')) {
-    define('SILVERWARE_FACEBOOK_DIR', basename(__DIR__));
-}
-
-if (!defined('SILVERWARE_FACEBOOK_PATH')) {
-    define('SILVERWARE_FACEBOOK_PATH', realpath(__DIR__));
-}
