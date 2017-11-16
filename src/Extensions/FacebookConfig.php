@@ -20,6 +20,7 @@ namespace SilverWare\Facebook\Extensions;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverWare\Extensions\Config\ServicesConfig;
+use SilverWare\Facebook\API\FacebookAPI;
 use SilverWare\Forms\FieldSection;
 
 /**
@@ -126,7 +127,7 @@ class FacebookConfig extends ServicesConfig
      */
     public function getFacebookStatusMessage()
     {
-        if (!$this->owner->FacebookAppID) {
+        if (!FacebookAPI::singleton()->hasAppID()) {
             
             return _t(
                 __CLASS__ . '.FACEBOOKAPPIDMISSING',
@@ -143,6 +144,6 @@ class FacebookConfig extends ServicesConfig
      */
     public function getBodyAttributes()
     {
-        return ['data-facebook-app-id' => $this->getSiteConfig()->FacebookAppID];
+        return ['data-facebook-app-id' => FacebookAPI::singleton()->getAppID()];
     }
 }

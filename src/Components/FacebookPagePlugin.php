@@ -23,6 +23,7 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
 use SilverWare\Components\BaseComponent;
 use SilverWare\Extensions\Style\AlignmentStyle;
+use SilverWare\Facebook\API\FacebookAPI;
 use SilverWare\Forms\FieldSection;
 
 /**
@@ -342,7 +343,7 @@ class FacebookPagePlugin extends BaseComponent
      */
     public function isDisabled()
     {
-        if (!$this->PageURL || !$this->getSiteConfig()->FacebookAppID) {
+        if (!$this->PageURL || !FacebookAPI::singleton()->hasAppID()) {
             return true;
         }
         
