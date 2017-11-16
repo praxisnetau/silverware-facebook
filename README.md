@@ -50,6 +50,13 @@ This will generate a new Facebook App ID. Copy the ID number, and paste it into
 the "Facebook App ID" field under Settings > SilverWare > Services > Facebook API.
 Finally, click the "Save" button to store your site settings.
 
+Alternatively, you can enter the Facebook App ID into your YAML configuration files:
+
+```yaml
+SilverWare\Facebook\API\FacebookAPI:
+  app_id: '<paste-id-here>'
+```
+
 ## Usage
 
 ### Facebook Page Plugin
