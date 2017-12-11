@@ -77,6 +77,14 @@ class FacebookPagePlugin extends BaseComponent
     private static $icon = 'silverware/facebook: admin/client/dist/images/icons/FacebookPagePlugin.png';
     
     /**
+     * Defines the table name to use for this object.
+     *
+     * @var string
+     * @config
+     */
+    private static $table_name = 'SilverWare_FacebookPagePlugin';
+    
+    /**
      * Defines an ancestor class to hide from the admin interface.
      *
      * @var string
