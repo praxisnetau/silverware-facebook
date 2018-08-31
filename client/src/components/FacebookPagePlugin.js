@@ -21,7 +21,13 @@ $(function() {
   
   // Detect Browser Resize:
   
+  var lastWidth = $(window).width();
+  
   $(window).resize(function() {
+    
+    if ($(window).width() === lastWidth) {
+      return;
+    }
     
     if (id !== null) {
       clearTimeout(id);
@@ -46,6 +52,8 @@ $(function() {
       });
       
     }, 1000);
+    
+    lastWidth = $(window).width();
     
   });
   
