@@ -15,7 +15,7 @@ $(function() {
     
     var $wrapper = $(this).find('.wrapper');
     
-    $wrapper.find('.fb-page').attr('data-width', $wrapper.width());
+    $wrapper.find('.fb-page').attr('data-width', Math.round($wrapper.width()));
     
   });
   
@@ -41,7 +41,7 @@ $(function() {
         
         var $wrapper = $(this).find('.wrapper');
         
-        $wrapper.load($wrapper.data('url'), { width: $wrapper.width() }, function() {
+        $wrapper.load($wrapper.data('url'), { width: Math.round($wrapper.width()) }, function() {
           
           // Parse XFBML (re-renders the plugin):
           
